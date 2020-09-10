@@ -1,0 +1,12 @@
+body {
+    background-color: lightskyblue;
+}
+table {
+    border: 2px solid black;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.title {
+    font-style: italic;
+}
