@@ -136,3 +136,38 @@ switch(instructor){
     default:
         console.log(`${instructor}, nope`)
 }
+
+//! Challenge 2: Take Home Challenge
+/*  
+Create a switch statement that takes in a value (number) that represents a grade.  If it is True, console log that they are passing with the correct letter grade.
+*   A: 89-100
+*   B: 79-88
+*   C: 66-78
+*   D: 59-65
+*   F: 0-59
+*/
+
+let grade = 101;
+
+switch(true){
+    case (grade > 100):
+        console.log(`${grade} is not a valid grade!`)
+        break;
+    case (grade > 88):
+        console.log(`passing: A (${grade})`);
+        break;
+    case (grade > 78):
+        console.log(`passing: B (${grade})`);
+        break;
+    case (grade > 65):
+        console.log(`passing: C (${grade})`);
+        break;
+    case (grade > 59):
+        console.log(`passing: D (${grade})`);
+        break;
+    case (grade > -1):
+        console.log(`passing: F (${grade})`);
+        break;
+    default:
+        console.log(`${grade} is not a valid grade!`)
+}
