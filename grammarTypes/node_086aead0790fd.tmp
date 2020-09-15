@@ -1,0 +1,5 @@
+let bourd = [' '*50]
+
+for(let i = 0; 0 < bourd.length; i++){
+    console.log(`${bourd[i]}:`)
+}
