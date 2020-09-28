@@ -1,0 +1,67 @@
+/*
+! PIG LATIN CHALLENGE (pair coding) - morning
+************
+    - Create a function that takes in strings
+    - In the function, translate a phrase into pig latin and print it to the console.
+    - If able to do so, return the value into another variable and print that variable
+    What is Pig Latin?
+        * If the word begins with a consonant, remove the consonant to the first vowel, place it at the end of the word, and add an 'ay' to the end (i.e. Pig Latin => IgPay Atinlay)
+        * If the word begins with a vowel, simply add an 'ay' at the end of the word
+    - It is greatly encouraged to seek out possible solutions utilizing MDN (or anything else that may be helpful).
+*/
+
+function isVowel(letter){
+    let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    for(let i = 0; i < vowels.length; i++){
+        if(vowels[i] == letter){
+            return true;
+        }
+    }
+    return false;
+}
+
+function returnSymbols(word){
+    let letters = 'abcdefghijklmnopqrstuvwxyz';
+    let symbols = ['', ''];
+    for(let i = 0; i < letters.length; i++){
+        for(let j = 0; j < word.length; j++){
+            let char = word[j];
+            let letter = letters[i];
+            while(char.toLowerCase() != letter){
+                symbols[0] += char;
+            }
+        }
+    }
+
+}
+
+function pigLatin(phrase){
+    let puctuation = ['.', ',', '!', '?'];
+    let words = phrase.split(' ');
+    let pigLatinPhrase = [];
+    for(let i = 0; i < words.length; i++){
+        let word = words[i];
+        let symbol = '';
+        for(let j = 0; j < puctuation.length; j++){
+            if(word.endsWith(puctuation[j])){
+                symbol = puctuation[j];
+                word = word.slice(0, word.length-1);
+                break;
+            }
+        }
+        let counter = 0
+        while(!isVowel(word[0])){
+            counter++;
+            word = word.slice(1, word.length) + word[0].toLowerCase();
+            if(counter > 10){
+                break;
+            }
+        }
+        pigLatinPhrase.push(word + 'ay' + symbol);
+    }
+    pigLatinPhrase = pigLatinPhrase.join(' ');
+    console.log(pigLatinPhrase);
+}
+
+// pigLatin('Hello, my name is ashton sprunger!');
+returnSymbols('hello,')
